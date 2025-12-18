@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #c9f7ff, #ffffff);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h2, h3 {
+    margin: 1%;
+    text-align: center;
+}
+
+/* Contenitore centrale dei bottoni */
+form {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    min-width: 300px;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bottoni tondi mega grandi */
+form input[type="submit"] {
+    width: 30%;
+    height: 30%;
+    border-radius: 50%;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5em;
+    position: absolute;
+    transition: background-color 0.3s;
+}
+
+input[name="Avanti"]:hover {
+    background-color: #2a009c;
+}
+
+input[name="Indietro"]:hover {
+    background-color: #2a009c;
+}
+
+input[name="Destra"]:hover {
+    background-color: #2a009c;
+}
+
+input[name="Sinistra"]:hover {
+    background-color: #2a009c;
+}
+
+/* Posizioni dei bottoni direzionali in croce */
+input[name="Avanti"] {
+    background-color: rgb(14, 106, 227);
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+input[name="Indietro"] {
+    background-color: rgb(14, 106, 227);    
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+input[name="Destra"] {
+    background-color: rgb(14, 106, 227);
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+}
+
+input[name="Sinistra"] {
+    background-color: rgb(14, 106, 227);
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+}
+
+input[name="Quadrato"] {
+    background-color: rgb(14, 106, 227);
+    top: 10%;
+    left: 80%;
+    transform: translate(0, -50%);
+}
+
+/* Pulsante Stop ULTRA GIGANTE al centro */
+input[name="Stop"] {
+    background-color: red;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    z-index: 10;
+}
+
+input[name="Stop"]:hover {
+    background-color: rgb(185, 13, 13);
+}
