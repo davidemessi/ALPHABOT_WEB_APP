@@ -85,13 +85,6 @@ input[name="Sinistra"] {
     transform: translate(0, -50%);
 }
 
-input[name="Quadrato"] {
-    background-color: rgb(14, 106, 227);
-    top: 10%;
-    left: 80%;
-    transform: translate(0, -50%);
-}
-
 /* Pulsante Stop ULTRA GIGANTE al centro */
 input[name="Stop"] {
     background-color: red;
@@ -109,3 +102,53 @@ input[name="Stop"] {
 input[name="Stop"]:hover {
     background-color: rgb(185, 13, 13);
 }
+
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+
+.dropdown {
+  position: fixed;
+  top: 2%;
+  left: 2%;
+  z-index: 100;
+}
+

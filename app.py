@@ -6,32 +6,64 @@ import time
 ab = AlphaBot()
 ab.stop()
 
-app=Flask(__name__)
+app = Flask(__name__)
 
-@app.route("/",methods=["GET","POST"])
-
+@app.route("/", methods=["GET", "POST"])
 def index():
-    if request.method=="POST":
-        if "Avanti" in request.form:
+
+    listaComandiDB = ()
+    
+    # prendo il comando selezionato
+    comandoSelezionato = None
+    if request.method == "POST":
+        comandoSelezionato = list(request.form.keys())[0]
+
+    # prendo i comandi presenti nel db
+    con = sqlite3.connect('./alphaBot_DB.db')
+    cur = con.cursor()
+    cur.execute("SELECT nome_comando FROM Comandi")
+    righe = cur.fetchall()
+    listaComandiDB = [riga[0] for riga in righe]
+    con.close()
+
+
+    print(listaComandiDB)
+    print(comandoSelezionato.lower())
+
+    if request.method == "POST":
+        if comandoSelezionato == "Avanti":
+            print(comandoSelezionato)
             ab.forward()
             return render_template("index.html")
-        elif "Indietro" in request.form:
+
+        elif comandoSelezionato == "Indietro":
+            print(comandoSelezionato)
             ab.backward()
             return render_template("index.html")
-        elif "Destra" in request.form:
+
+        elif comandoSelezionato == "Destra":
+            print(comandoSelezionato)
             ab.right()
             return render_template("index.html")
-        elif "Sinistra" in request.form:
+
+        elif comandoSelezionato == "Sinistra":
+            print(comandoSelezionato)
             ab.left()
             return render_template("index.html")
-        elif "Stop" in request.form:
+
+        elif comandoSelezionato == "Stop":
+            print(comandoSelezionato)
             ab.stop()
             return render_template("index.html")
-        elif "Quadrato" in request.form:
-            comando = "quadrato"
+
+        elif comandoSelezionato.lower() in listaComandiDB:
+            print(comandoSelezionato)
             con = sqlite3.connect('./alphaBot_DB.db')
             cur = con.cursor()
-            cur.execute(f"SELECT movimento, tempi FROM Comandi WHERE nome_comando LIKE '{comando}'")
+            cur.execute(
+                "SELECT movimento, tempi FROM Comandi WHERE nome_comando = ?",
+                (comandoSelezionato.lower(),)
+            )
             righe = cur.fetchall()
             print(f"Righe: {righe}")
             con.close()
@@ -56,12 +88,10 @@ def index():
                 if mov == 'aspetta':
                     ab.stop()
                     time.sleep(float(tempi))
+
             return render_template("index.html")
-        elif "AvantiIndietro" in request.form:
-            ab.stop()
-            return render_template("index.html")
-    elif request.method=="GET":
+
+    elif request.method == "GET":
         return render_template("index.html")
-    
 
 app.run(debug=False, host="0.0.0.0")

@@ -1,23 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/style.css">
-    <title>αBot</title>
-</head>
-<body>
-    <h1>PROGETTO ALPHABOT</h1>
-    <form method="post" action="/">
-        <input type="submit" value="Avanti" name="Avanti">
-        <input type="submit" value="Indietro" name="Indietro">
-        <input type="submit" value="Destra" name="Destra">
-        <input type="submit" value="Sinistra" name="Sinistra">
-        <input type="submit" value="Stop" name="Stop">
-        <input type="submit" value="Quadrato" name="Quadrato">
-        <input type="submit" value="AvantiIndietro" name="AvantiIndietro">
-    </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/style.css">
+        <title>αBot</title>
+    </head>
+    <body>
+        <h1>PROGETTO ALPHABOT</h1>
+        <form method="post" action="/">
+            <input type="submit" value="Avanti" name="Avanti">
+            <input type="submit" value="Indietro" name="Indietro">
+            <input type="submit" value="Destra" name="Destra">
+            <input type="submit" value="Sinistra" name="Sinistra">
+            <input type="submit" value="Stop" name="Stop">
+            <input type="submit" value="AvantiIndietro" name="AvantiIndietro">
+        </form>
 
-    
-</body>
+        <form method="post" action="/"></form>
+            <div class="dropdown">
+                <button type="button" onclick="apriTendina()" class="dropbtn">DataBase</button>
+                <div id="menu" class="dropdown-content">
+                    <input type="submit" value="Quadrato" name="Quadrato">
+                    <input type="submit" value="Triangolo" name="Triangolo">
+                    <input type="submit" value="Rettangolo" name="Rettangolo">
+                    <input type="submit" value="Casetta" name="Casetta">
+                    <input type="submit" value="Avanti_Indietro" name="AvantiIndietro">
+                </div>
+            </div>
+        </form>
+    </body>
 </html>
+
+<script>
+    function apriTendina() {
+        document.getElementById("menu").classList.toggle("show");
+    }
+</script>
